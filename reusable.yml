@@ -1,34 +1,34 @@
-name: Reusable Build and Deploy for Spring boot application
+# name: Reusable Build and Deploy for Spring boot application
 
-on:
-  workflow_call:
-    inputs:
-      image_name:
-        required: true
-        type: string
-    secrets:
-      DOCKER_USERNAME:
-        required: true
-      DOCKER_PASSWORD:
-        required: true
+# on:
+#   workflow_call:
+#     inputs:
+#       image_name:
+#         required: true
+#         type: string
+#     secrets:
+#       DOCKER_USERNAME:
+#         required: true
+#       DOCKER_PASSWORD:
+#         required: true
 
-jobs:
-  build:
-    name: Build the application
-    runs-on: ubuntu-latest
-    steps:
-      - name: Use shared build action
-        uses: muskan04yadav/nodejs-build-action@spring-build-action
-        with:
-          docker-username: ${{ secrets.DOCKER_USERNAME }}
-          docker-password: ${{ secrets.DOCKER_PASSWORD }}
+# jobs:
+#   build:
+#     name: Build the application
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Use shared build action
+#         uses: muskan04yadav/nodejs-build-action@spring-build-action
+#         with:
+#           docker-username: ${{ secrets.DOCKER_USERNAME }}
+#           docker-password: ${{ secrets.DOCKER_PASSWORD }}
 
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: [aws-ec2]
-    steps:
-      - name: Use shared deploy action
-        uses: muskan04yadav/nodejs-deploy-action@spring-deploy-action
-        with:
-          image_name: ${{ inputs.image_name }}
+#   deploy:
+#     name: Deploy
+#     needs: build
+#     runs-on: [aws-ec2]
+#     steps:
+#       - name: Use shared deploy action
+#         uses: muskan04yadav/nodejs-deploy-action@spring-deploy-action
+#         with:
+#           image_name: ${{ inputs.image_name }}
