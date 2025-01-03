@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use shared build action
-        uses: muskan04yadav/nodejs-build-action@spring-build-action
+        uses: muskan04yadav/spring_build_workflow@main
         with:
           docker-username: ${{ secrets.DOCKER_USERNAME }}
           docker-password: ${{ secrets.DOCKER_PASSWORD }}
@@ -29,6 +29,6 @@ jobs:
     runs-on: [aws-ec2]
     steps:
       - name: Use shared deploy action
-        uses: muskan04yadav/nodejs-deploy-action@spring-deploy-action
+        uses: muskan04yadav/spring_deploy_workflow@main
         with:
           image_name: ${{ inputs.image_name }}
