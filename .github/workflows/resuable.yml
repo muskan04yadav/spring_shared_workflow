@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use shared build action
-        uses: muskan04yadav/spring_build_workflow.github/workflows/build.yml@main
+        uses: muskan04yadav/spring_build_workflow/.github/workflows/build.yml@main
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
