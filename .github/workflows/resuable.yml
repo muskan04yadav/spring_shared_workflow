@@ -17,8 +17,8 @@ jobs:
     name: Build the application
     uses: muskan04yadav/spring_build_workflow/.github/workflows/build.yml@main
     with:
-        docker_username: ${{ secrets.DOCKER_USERNAME }}
-        docker_password: ${{ secrets.DOCKER_PASSWORD }}
+        docker_username: ${{ inputs.DOCKER_USERNAME }}
+        docker_password: ${{ inputs.DOCKER_PASSWORD }}
 
 
   deploy:
