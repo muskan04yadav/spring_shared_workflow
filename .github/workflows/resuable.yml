@@ -20,8 +20,9 @@ jobs:
       - name: Use shared build action
         uses: muskan04yadav/spring_build_workflow@main
         with:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          docker_username: ${{ secrets.DOCKER_USERNAME }}
+          docker_password: ${{ secrets.DOCKER_PASSWORD }}
+
 
   deploy:
     name: Deploy
