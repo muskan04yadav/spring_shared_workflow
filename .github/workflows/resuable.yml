@@ -27,6 +27,6 @@ jobs:
     runs-on: [aws-ec2]
     steps:
       - name: Use shared deploy action
-        uses: muskan04yadav/spring_deploy_workflow@main
+        uses: muskan04yadav/spring_deploy_workflow/.github/workflows/deploy.yml@main
         with:
           image_name: ${{ inputs.image_name }}
