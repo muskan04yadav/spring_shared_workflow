@@ -6,20 +6,19 @@ on:
       image_name:
         required: true
         type: string
+    secrets:
       DOCKER_USERNAME:
         required: true
-        type: string
       DOCKER_PASSWORD:
         required: true
-        type: string
 
 jobs:
   build:
     name: Build the application
     uses: muskan04yadav/spring_build_workflow/.github/workflows/build.yml@main
-    with:
-       DOCKER_USERNAME: ${{ inputs.DOCKER_USERNAME }}
-       DOCKER_PASSWORD: ${{ inputs.DOCKER_PASSWORD }}
+    secrets:
+       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 
   deploy:
