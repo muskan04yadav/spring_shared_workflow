@@ -6,6 +6,10 @@ on:
       image_name:
         required: true
         type: string
+      container_name:
+        description: Name of the Docker container to run
+        required: true
+        type: string
     secrets:
       DOCKER_USERNAME:
         required: true
