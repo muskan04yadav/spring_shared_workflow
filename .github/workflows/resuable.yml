@@ -10,6 +10,14 @@ on:
         description: Name of the Docker container to run
         required: true
         type: string
+      repository_name:
+        description: Name of the repository
+        required: true
+        type: string
+      tag:
+        description: Tag for the Docker image
+        required: true
+        type: string
     secrets:
       DOCKER_USERNAME:
         required: true
@@ -20,6 +28,9 @@ jobs:
   build:
     name: Build the application
     uses: muskan04yadav/spring_build_workflow/.github/workflows/build.yml@main
+    with: 
+      repository_name: spring-petclinic
+      tag: latest
     secrets:
        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
