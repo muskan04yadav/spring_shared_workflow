@@ -26,3 +26,6 @@ jobs:
     uses: muskan04yadav/spring_deploy_workflow/.github/workflows/deploy.yml@main
     with:
       image_name: ${{ inputs.image_name }}
+    secrets:
+       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
